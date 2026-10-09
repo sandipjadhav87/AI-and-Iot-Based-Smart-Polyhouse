@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+
+# Secrets and credentials
+firebase-service-account.json
+.env
+.env.*
+!.env.example
+*service-account*.json
+
+# Node.js
+node_modules/
+Frontend/node_modules/
+Frontend/dist/
+
+# Environment files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+# Large trained AI models
+Models/*.pkl
