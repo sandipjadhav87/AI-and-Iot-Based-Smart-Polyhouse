@@ -5,3 +5,4 @@ scikit-learn==1.9.1
 numpy==2.4.6
 pandas==3.0.6
 joblib==1.6.0
+huggingface_hub

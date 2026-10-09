@@ -5,6 +5,7 @@ import firebase_admin
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from firebase_admin import credentials, db
+from huggingface_hub import hf_hub_download
 
 # -----------------------------
 # PATHS
@@ -32,21 +33,31 @@ sensor_ref = db.reference("/polyhouse/sensors")
 prediction_ref = db.reference("/polyhouse/predictions")
 
 # -----------------------------
-# LOAD AI MODELS
+# LOAD AI MODELS FROM HUGGING FACE
 # -----------------------------
 
+MODEL_REPO = "sandip87/smart-polyhouse-ai-models"
+
+
+def download_model(filename):
+    return hf_hub_download(
+        repo_id=MODEL_REPO,
+        filename=filename,
+        repo_type="model"
+    )
+
+
 irrigation_model = joblib.load(
-    os.path.join(MODEL_DIR, "final_irrigation_model_compressed.pkl")
+    download_model("final_irrigation_model_compressed.pkl")
 )
 
 fan_model = joblib.load(
-    os.path.join(MODEL_DIR, "final_fan_model_compressed.pkl")
+    download_model("final_fan_model_compressed.pkl")
 )
 
 temperature_model = joblib.load(
-    os.path.join(MODEL_DIR, "final_temperature_model_compressed.pkl")
+    download_model("final_temperature_model_compressed.pkl")
 )
-
 # -----------------------------
 # FASTAPI
 # -----------------------------
