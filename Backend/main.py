@@ -1,4 +1,4 @@
-import os
+﻿import os
 import joblib
 import firebase_admin
 
@@ -36,15 +36,15 @@ prediction_ref = db.reference("/polyhouse/predictions")
 # -----------------------------
 
 irrigation_model = joblib.load(
-    os.path.join(MODEL_DIR, "final_irrigation_model.pkl")
+    os.path.join(MODEL_DIR, "final_irrigation_model_compressed.pkl")
 )
 
 fan_model = joblib.load(
-    os.path.join(MODEL_DIR, "final_fan_model.pkl")
+    os.path.join(MODEL_DIR, "final_fan_model_compressed.pkl")
 )
 
 temperature_model = joblib.load(
-    os.path.join(MODEL_DIR, "final_temperature_model.pkl")
+    os.path.join(MODEL_DIR, "final_temperature_model_compressed.pkl")
 )
 
 # -----------------------------

@@ -24,5 +24,9 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
-# Large trained AI models
+# Ignore original, uncompressed models
+Models/final_irrigation_model.pkl
+Models/final_fan_model.pkl
+Models/final_temperature_model.pkl
+
 Models/*.pkl
