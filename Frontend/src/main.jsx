@@ -305,14 +305,7 @@ function CropPage({ sensor, history }) {
             description={Number(sensor.soil_moisture) < 35 ? "Dry — irrigation needed" : "Moisture available"}
             accent="green"
           />
-          <PredictionCard
-            icon={<Sun />}
-            title="Light"
-            value={sensor.light_intensity}
-            unit="lux"
-            description="Current light intensity"
-            accent="purple"
-          />
+          
         </div>
       </section>
 
@@ -387,7 +380,7 @@ function AIPage({ sensor, prediction }) {
           <MetricCard icon={<Thermometer />} title="Temperature Input" value={sensor.temperature} unit="°C" description="Model input" type="temperature" />
           <MetricCard icon={<CloudSun />} title="Humidity Input" value={sensor.humidity} unit="%" description="Model input" type="humidity" />
           <MetricCard icon={<Droplets />} title="Soil Input" value={sensor.soil_moisture} unit="%" description="Model input" type="soil" />
-          <MetricCard icon={<Sun />} title="Light Input" value={sensor.light_intensity} unit="lux" description="Model input" type="light" />
+          
         </div>
       </section>
 
@@ -404,7 +397,7 @@ function AIPage({ sensor, prediction }) {
           <Config label="Irrigation Time" value={`${Number(prediction.irrigation_time).toFixed(2)} min`} />
           <Config label="Ventilation Time" value={`${Number(prediction.fan_time).toFixed(2)} min`} />
           <Config label="Target Temperature" value={`${Number(prediction.target_temperature).toFixed(2)} °C`} />
-          <Config label="Estimated Water" value={`${Number(prediction.estimated_water_litres).toFixed(2)} L`} />
+          
         </div>
       </section>
     </>
@@ -429,8 +422,7 @@ function IrrigationPage({ sensor, prediction }) {
 
         <div className="prediction-grid">
           <PredictionCard icon={<Droplets />} title="Irrigation Time" value={prediction.irrigation_time} unit="min" description="AI recommended duration" accent="green" />
-          <PredictionCard icon={<Gauge />} title="Pump Flow" value={flow} unit="L/hr" description="Configured pump capacity" accent="blue" />
-          <PredictionCard icon={<Zap />} title="Water Estimate" value={litres} unit="L" description="Time × pump flow" accent="purple" />
+         
           <PredictionCard icon={<Sprout />} title="Soil Moisture" value={sensor.soil_moisture} unit="%" description="Current root-zone reading" accent="orange" />
         </div>
       </section>
@@ -534,7 +526,7 @@ function SensorSection({ sensor }) {
         <MetricCard icon={<Thermometer />} title="Temperature" value={sensor.temperature} unit="°C" description="Current air temperature" type="temperature" />
         <MetricCard icon={<CloudSun />} title="Humidity" value={sensor.humidity} unit="%" description="Relative humidity" type="humidity" />
         <MetricCard icon={<Droplets />} title="Soil Moisture" value={sensor.soil_moisture} unit="%" description="Root-zone moisture" type="soil" />
-        <MetricCard icon={<Sun />} title="Light Intensity" value={sensor.light_intensity} unit="lux" description="Current light level" type="light" />
+        
       </div>
     </section>
   );
@@ -555,8 +547,7 @@ function PredictionSection({ prediction }) {
         <PredictionCard icon={<Droplets />} title="Irrigation" value={prediction.irrigation_time} unit="min" description="Recommended irrigation duration" accent="green" />
         <PredictionCard icon={<Wind />} title="Ventilation" value={prediction.fan_time} unit="min" description="Recommended fan operation" accent="blue" />
         <PredictionCard icon={<Thermometer />} title="Target Temperature" value={prediction.target_temperature} unit="°C" description="AI-recommended temperature" accent="orange" />
-        <PredictionCard icon={<Gauge />} title="Water Requirement" value={prediction.estimated_water_litres} unit="L" description="Estimated water consumption" accent="purple" />
-      </div>
+        </div>
     </section>
   );
 }

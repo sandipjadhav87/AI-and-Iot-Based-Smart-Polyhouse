@@ -1,6 +1,6 @@
 fastapi==0.142.2
 uvicorn==0.54.0
-firebase_admin==7.7.0
+firebase-admin==7.7.0
 scikit-learn==1.9.1
 numpy==2.4.6
 pandas==3.0.6
